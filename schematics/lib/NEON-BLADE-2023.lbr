@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.4.2">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="5" altunitdist="mil" altunit="mil"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="16" fill="1" visible="no" active="yes"/>
@@ -3733,6 +3733,28 @@
 <pad name="P$7" x="6.35" y="-4" drill="1.016" shape="octagon"/>
 <pad name="P$8" x="8.89" y="-4" drill="1.016" shape="octagon"/>
 </package>
+<package name="BTN_VERY_SMALL">
+<wire x1="-1.7" y1="1.7" x2="-1.7" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="-1.7" y1="-1.7" x2="1.7" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="1.7" y1="-1.7" x2="1.7" y2="1.7" width="0.127" layer="21"/>
+<wire x1="-1.7" y1="1.7" x2="1.7" y2="1.7" width="0.127" layer="21"/>
+<smd name="P$1" x="-2" y="1" dx="1.2" dy="0.5" layer="1"/>
+<smd name="P$2" x="2" y="1" dx="1.2" dy="0.5" layer="1"/>
+<smd name="P$3" x="2" y="-1" dx="1.2" dy="0.5" layer="1"/>
+<smd name="P$4" x="-2" y="-1" dx="1.2" dy="0.5" layer="1"/>
+<circle x="0" y="0" radius="1" width="0.127" layer="21"/>
+</package>
+<package name="MSS12D01">
+<pad name="P$1" x="0" y="0" drill="0.9" shape="square"/>
+<pad name="P$2" x="2.5" y="0" drill="0.9" shape="square"/>
+<pad name="P$3" x="-2.5" y="0" drill="0.9" shape="square"/>
+<wire x1="-4.3" y1="2.4" x2="-4.3" y2="-1.1" width="0.127" layer="21"/>
+<wire x1="-4.3" y1="-1.1" x2="4.3" y2="-1.1" width="0.127" layer="21"/>
+<wire x1="4.3" y1="-1.1" x2="4.3" y2="2.4" width="0.127" layer="21"/>
+<wire x1="4.3" y1="2.4" x2="-4.3" y2="2.4" width="0.127" layer="21"/>
+<text x="-3.5" y="3.5" size="1.27" layer="21">&gt;NAME</text>
+<rectangle x1="-0.1" y1="2.4" x2="3" y2="3.3" layer="21"/>
+</package>
 </packages>
 <packages3d>
 <package3d name="SOIC8" urn="urn:adsk.eagle:package:8087957/1" type="box">
@@ -5513,6 +5535,27 @@ Datasheet and info: http://www.ebyte.com/en/product-view-news.aspx?id=436</descr
 <pin name="3V3" x="15.24" y="10.16" length="middle" rot="R180"/>
 <pin name="VIN" x="15.24" y="15.24" length="middle" rot="R180"/>
 <text x="-7.62" y="17.78" size="1.778" layer="95">&gt;NAME</text>
+</symbol>
+<symbol name="UNICS-SWITCH">
+<wire x1="-3.81" y1="1.905" x2="-3.81" y2="0" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="0" x2="-1.905" y2="0" width="0.1524" layer="94"/>
+<wire x1="-3.81" y1="0" x2="-3.81" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-0.762" y2="0" width="0.1524" layer="94"/>
+<wire x1="0.254" y1="0" x2="0.635" y2="0" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-3.175" x2="2.54" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.905" x2="0.635" y2="3.175" width="0.254" layer="94"/>
+<wire x1="3.81" y1="2.54" x2="5.08" y2="2.54" width="0.254" layer="94"/>
+<wire x1="5.08" y1="2.54" x2="5.08" y2="3.175" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="1.27" y2="2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="2.54" x2="0" y2="3.175" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="1.905" y2="0" width="0.1524" layer="94"/>
+<wire x1="-0.762" y1="0" x2="-0.254" y2="-0.762" width="0.1524" layer="94"/>
+<wire x1="-0.254" y1="-0.762" x2="0.254" y2="0" width="0.1524" layer="94"/>
+<text x="-6.35" y="-1.905" size="1.778" layer="95" rot="R90">&gt;NAME</text>
+<text x="-3.81" y="3.175" size="1.778" layer="96" rot="R90">&gt;VALUE</text>
+<pin name="P" x="2.54" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
+<pin name="S" x="5.08" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
+<pin name="O" x="0" y="5.08" visible="pad" length="short" direction="pas" rot="R270"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -8311,6 +8354,41 @@ Datasheet and info: http://www.ebyte.com/en/product-view-news.aspx?id=436</descr
 <connect gate="G$1" pin="SCL" pad="P$4"/>
 <connect gate="G$1" pin="SDA" pad="P$3"/>
 <connect gate="G$1" pin="VIN" pad="P$7"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BTN_VERY_SMALL">
+<gates>
+<gate name="G$1" symbol="BUTTON" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="BTN_VERY_SMALL">
+<connects>
+<connect gate="G$1" pin="P" pad="P$1"/>
+<connect gate="G$1" pin="P@1" pad="P$2"/>
+<connect gate="G$1" pin="S" pad="P$3"/>
+<connect gate="G$1" pin="S@1" pad="P$4"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="MSS12D01">
+<gates>
+<gate name="G$1" symbol="UNICS-SWITCH" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="MSS12D01">
+<connects>
+<connect gate="G$1" pin="O" pad="P$3"/>
+<connect gate="G$1" pin="P" pad="P$1"/>
+<connect gate="G$1" pin="S" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
