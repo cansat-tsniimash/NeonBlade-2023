@@ -25,6 +25,7 @@
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
 "./Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.o"
+"./stm32f4/1Wire_DS18B20/src/one_wire.o"
 "./stm32f4/ATGM336H/minmea/example.o"
 "./stm32f4/ATGM336H/minmea/minmea.o"
 "./stm32f4/ATGM336H/src/nmea_gps.o"

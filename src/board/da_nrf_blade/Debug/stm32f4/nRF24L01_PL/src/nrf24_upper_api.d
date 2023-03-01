@@ -1,5 +1,5 @@
 stm32f4/nRF24L01_PL/src/nrf24_upper_api.o: \
- C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/nRF24L01_PL/src/nrf24_upper_api.c \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/nRF24L01_PL/src/nrf24_upper_api.c \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -26,12 +26,12 @@ stm32f4/nRF24L01_PL/src/nrf24_upper_api.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_upper_api.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_lower_api.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_lower_api_stm32.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\shift_register\shift_reg.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_defs.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_defs.h
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_upper_api.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_lower_api.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_lower_api_stm32.h \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/Shift_Register/shift_reg.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_defs.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_defs.h
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -85,14 +85,14 @@ stm32f4/nRF24L01_PL/src/nrf24_upper_api.o: \
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_upper_api.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_upper_api.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_lower_api.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_lower_api.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_lower_api_stm32.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_lower_api_stm32.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\shift_register\shift_reg.h:
+X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/Shift_Register/shift_reg.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_defs.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_defs.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_defs.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\nrf24l01_pl\nrf24_defs.h:

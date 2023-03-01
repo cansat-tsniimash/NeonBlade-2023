@@ -19,6 +19,7 @@ RM := rm -rf
 -include stm32f4/BME280/src/subdir.mk
 -include stm32f4/ATGM336H/src/subdir.mk
 -include stm32f4/ATGM336H/minmea/subdir.mk
+-include stm32f4/1Wire_DS18B20/src/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -71,8 +72,8 @@ all: main-build
 main-build: da_nrf_blade.elf secondary-outputs
 
 # Tool invocations
-da_nrf_blade.elf: $(OBJS) $(USER_OBJS) C:\Users\1\STM32CubeIDE\workspace_1.8.0\da_nrf_blade\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "da_nrf_blade.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\1\STM32CubeIDE\workspace_1.8.0\da_nrf_blade\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="da_nrf_blade.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+da_nrf_blade.elf: $(OBJS) $(USER_OBJS) X:\Cansat\ 2023\Neon\ Blade\NeonBlade-2023\ (GitHub)\src\board\da_nrf_blade\STM32F411CEUX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "da_nrf_blade.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"X:\Cansat 2023\Neon Blade\NeonBlade-2023 (GitHub)\src\board\da_nrf_blade\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="da_nrf_blade.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

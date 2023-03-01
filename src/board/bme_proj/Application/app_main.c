@@ -163,7 +163,7 @@ int app_main()
 
 	// Настраиваем параметры радиопередачи
 	nrf24_rf_config_t nrf24_rf_config;
-	nrf24_rf_config.data_rate = NRF24_DATARATE_250_KBIT;
+	nrf24_rf_config.data_rate = NRF24_DATARATE_2000_KBIT;
 	nrf24_rf_config.rf_channel = 100;
 	nrf24_rf_config.tx_power = NRF24_TXPOWER_MINUS_0_DBM;
 	nrf24_setup_rf(&nrf24_api_config, &nrf24_rf_config);
@@ -174,7 +174,7 @@ int app_main()
 	nrf24_protocol_config.auto_retransmit_count = 15;
 	nrf24_protocol_config.auto_retransmit_delay = 15;
 	nrf24_protocol_config.crc_size = NRF24_CRCSIZE_1BYTE;
-	nrf24_protocol_config.en_ack_payload = false;
+	nrf24_protocol_config.en_ack_payload = true;
 	nrf24_protocol_config.en_dyn_ack = false;
 	nrf24_protocol_config.en_dyn_payload_size = false;
 	nrf24_setup_protocol(&nrf24_api_config, &nrf24_protocol_config);
@@ -182,7 +182,7 @@ int app_main()
 
 	//Настраиваем пайпы 0 - 2 для приема
 	nrf24_pipe_config_t pipe_config;
-	pipe_config.enable_auto_ack = false;
+	pipe_config.enable_auto_ack = true;
 	pipe_config.payload_size = 32;
 	pipe_config.address = DA1_NRF_ADDR;
 	nrf24_pipe_rx_start(&nrf24_api_config, 0, &pipe_config);
@@ -194,38 +194,48 @@ int app_main()
 	nrf24_pipe_rx_start(&nrf24_api_config, 2, &pipe_config);
 
 
-
-	int16_t er_rf_wr = 0;
-	uint8_t status;
-
 //	uint8_t rx_buffer[32] = {0};
 //	uint8_t tx_buffer[32] = {0};
 
-	nrf24_fifo_status_t rx_status = 0;
-    nrf24_fifo_status_t tx_status = 0;
+
     nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_TX_DR | NRF24_IRQ_RX_DR |NRF24_IRQ_MAX_RT);
     nrf24_fifo_flush_rx(&nrf24_api_config);
     nrf24_fifo_flush_tx(&nrf24_api_config);
-	nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
 
     //Переводим радио в режим передачи
 	nrf24_mode_tx(&nrf24_api_config);
-
 	nrf24_fifo_flush_tx(&nrf24_api_config);
 	nrf24_pipe_set_tx_addr(&nrf24_api_config, DA1_NRF_ADDR);
-	er_rf_wr = nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
+	nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
+
+	int IRQ_flags;
+	nrf24_fifo_status_t rx_status = 0;
+    nrf24_fifo_status_t tx_status = 0;
 
 	while(1)
 	{
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 		HAL_Delay(100);
-		nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
-		if(tx_status == NRF24_FIFO_EMPTY)
+		nrf24_irq_get(&nrf24_api_config, &IRQ_flags);
+		if((IRQ_flags & NRF24_IRQ_TX_DR) != 0)
 		{
 			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 			HAL_Delay(100);
+			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_TX_DR);
+			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
 			nrf24_fifo_flush_tx(&nrf24_api_config);
-			er_rf_wr = nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
+			nrf24_fifo_flush_rx(&nrf24_api_config);
+			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
+			nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
+		}
+		else if (IRQ_flags & NRF24_IRQ_MAX_RT)
+		{
+			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_MAX_RT);
+			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
+			nrf24_fifo_flush_tx(&nrf24_api_config);
+			nrf24_fifo_flush_rx(&nrf24_api_config);
+			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
+			nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
 		}
 		/*if(rx_status != NRF24_FIFO_EMPTY)
 		{

@@ -1,6 +1,6 @@
 stm32f4/Dosimeter/src/dosimeter.o: \
- C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/Dosimeter/src/dosimeter.c \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\dosimeter\dosimeter.h \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/Dosimeter/src/dosimeter.c \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\dosimeter\dosimeter.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -33,7 +33,7 @@ stm32f4/Dosimeter/src/dosimeter.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\dosimeter\dosimeter.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\dosimeter\dosimeter.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 

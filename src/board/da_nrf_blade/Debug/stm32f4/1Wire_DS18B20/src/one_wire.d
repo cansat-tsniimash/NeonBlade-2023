@@ -1,6 +1,6 @@
 stm32f4/1Wire_DS18B20/src/one_wire.o: \
- C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/1Wire_DS18B20/src/one_wire.c \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\1wire_ds18b20\one_wire.h \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/1Wire_DS18B20/src/one_wire.c \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\1wire_ds18b20\one_wire.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -27,9 +27,9 @@ stm32f4/1Wire_DS18B20/src/one_wire.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
- C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/DWT_Delay/dwt_delay.h
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/DWT_Delay/dwt_delay.h
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\1wire_ds18b20\one_wire.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\1wire_ds18b20\one_wire.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -83,4 +83,4 @@ c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\1wire_ds18
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
 
-C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/DWT_Delay/dwt_delay.h:
+X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/DWT_Delay/dwt_delay.h:

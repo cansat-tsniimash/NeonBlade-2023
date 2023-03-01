@@ -1,6 +1,6 @@
 stm32f4/DWT_Delay/src/dwt_delay.o: \
- C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/DWT_Delay/src/dwt_delay.c \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\dwt_delay\dwt_delay.h \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/DWT_Delay/src/dwt_delay.c \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\dwt_delay\dwt_delay.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h \
  ../Drivers/CMSIS/Include/core_cm4.h \
@@ -33,7 +33,7 @@ stm32f4/DWT_Delay/src/dwt_delay.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\dwt_delay\dwt_delay.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\dwt_delay\dwt_delay.h:
 
 ../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h:
 

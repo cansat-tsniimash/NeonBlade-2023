@@ -24,6 +24,7 @@ Application \
 Core/Src \
 Core/Startup \
 Drivers/STM32F4xx_HAL_Driver/Src \
+stm32f4/1Wire_DS18B20/src \
 stm32f4/ATGM336H/minmea \
 stm32f4/ATGM336H/src \
 stm32f4/BME280/src \

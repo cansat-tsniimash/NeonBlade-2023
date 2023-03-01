@@ -163,7 +163,7 @@ int app_main()
 
 	// Настраиваем параметры радиопередачи
 	nrf24_rf_config_t nrf24_rf_config;
-	nrf24_rf_config.data_rate = NRF24_DATARATE_250_KBIT;
+	nrf24_rf_config.data_rate = NRF24_DATARATE_2000_KBIT;
 	nrf24_rf_config.rf_channel = 100;
 	nrf24_rf_config.tx_power = NRF24_TXPOWER_MINUS_0_DBM;
 	nrf24_setup_rf(&nrf24_api_config, &nrf24_rf_config);
@@ -174,7 +174,7 @@ int app_main()
 	nrf24_protocol_config.auto_retransmit_count = 15;
 	nrf24_protocol_config.auto_retransmit_delay = 15;
 	nrf24_protocol_config.crc_size = NRF24_CRCSIZE_1BYTE;
-	nrf24_protocol_config.en_ack_payload = false;
+	nrf24_protocol_config.en_ack_payload = true;
 	nrf24_protocol_config.en_dyn_ack = false;
 	nrf24_protocol_config.en_dyn_payload_size = false;
 	nrf24_setup_protocol(&nrf24_api_config, &nrf24_protocol_config);
@@ -182,7 +182,7 @@ int app_main()
 
 	//Настраиваем пайп 0 для приема
 	nrf24_pipe_config_t pipe_config;
-	pipe_config.enable_auto_ack = false;
+	pipe_config.enable_auto_ack = true;
 	pipe_config.payload_size = 32;
 	pipe_config.address = DA1_NRF_ADDR;
 	nrf24_pipe_rx_start(&nrf24_api_config, 0, &pipe_config);
@@ -209,19 +209,31 @@ int app_main()
 	er_rf_wr = nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
 	*/
 
-	int composit;
+	int IRQ_flags;
+	uint8_t packet_size;
+	uint8_t rx_pipe_no;
+	bool tx_full;
+
 	while(1)
 	{
-		nrf24_irq_get(&nrf24_api_config, &composit);
-		if((composit & NRF24_IRQ_RX_DR) != 0)
+		nrf24_irq_get(&nrf24_api_config, &IRQ_flags);
+		if((IRQ_flags & NRF24_IRQ_RX_DR) != 0)
 		{
 			HAL_GPIO_WritePin(GPIOC , GPIO_PIN_13, GPIO_PIN_SET);
-			HAL_Delay(100);
-			nrf24_fifo_read(&nrf24_api_config, rx_buffer, 32);
+			HAL_Delay(50);
+
+			do
+			{
+				nrf24_fifo_read(&nrf24_api_config, rx_buffer, 32);
+				nrf24_fifo_peek(&nrf24_api_config, &packet_size, &rx_pipe_no, &tx_full);
+			} while (packet_size);
+
+			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_RX_DR);
+		    nrf24_fifo_flush_rx(&nrf24_api_config);
+		    nrf24_fifo_flush_tx(&nrf24_api_config);
 		}
 
 		HAL_GPIO_WritePin(GPIOC , GPIO_PIN_13, GPIO_PIN_RESET);
-		HAL_Delay(100);
 		nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
 		/*if(tx_status == NRF24_FIFO_EMPTY)
 		{

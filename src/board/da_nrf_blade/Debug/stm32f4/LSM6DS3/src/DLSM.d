@@ -1,8 +1,9 @@
 stm32f4/LSM6DS3/src/DLSM.o: \
- C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/LSM6DS3/src/DLSM.c \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lsm6ds3\lsm6ds3_reg.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lsm6ds3\dlsm.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lsm6ds3\lsm6ds3_reg.h \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/LSM6DS3/src/DLSM.c \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lsm6ds3\lsm6ds3_reg.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lsm6ds3\dlsm.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lsm6ds3\lsm6ds3_reg.h \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/Shift_Register\shift_reg.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -30,11 +31,13 @@ stm32f4/LSM6DS3/src/DLSM.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lsm6ds3\lsm6ds3_reg.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lsm6ds3\lsm6ds3_reg.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lsm6ds3\dlsm.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lsm6ds3\dlsm.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lsm6ds3\lsm6ds3_reg.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lsm6ds3\lsm6ds3_reg.h:
+
+X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/Shift_Register\shift_reg.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 

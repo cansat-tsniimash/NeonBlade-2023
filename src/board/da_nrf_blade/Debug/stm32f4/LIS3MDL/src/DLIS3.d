@@ -1,8 +1,8 @@
 stm32f4/LIS3MDL/src/DLIS3.o: \
- C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/LIS3MDL/src/DLIS3.c \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lis3mdl\lis3mdl_reg.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lis3mdl\dlis3.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lis3mdl\lis3mdl_reg.h \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/LIS3MDL/src/DLIS3.c \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lis3mdl\lis3mdl_reg.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lis3mdl\dlis3.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lis3mdl\lis3mdl_reg.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h \
  ../Core/Inc/stm32f4xx_hal_conf.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h \
@@ -28,13 +28,14 @@ stm32f4/LIS3MDL/src/DLIS3.o: \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h \
  ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h \
- ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h
+ ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h \
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/Shift_Register\shift_reg.h
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lis3mdl\lis3mdl_reg.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lis3mdl\lis3mdl_reg.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lis3mdl\dlis3.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lis3mdl\dlis3.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lis3mdl\lis3mdl_reg.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\lis3mdl\lis3mdl_reg.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 
@@ -87,3 +88,5 @@ c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\lis3mdl\li
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h:
 
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h:
+
+X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/Shift_Register\shift_reg.h:

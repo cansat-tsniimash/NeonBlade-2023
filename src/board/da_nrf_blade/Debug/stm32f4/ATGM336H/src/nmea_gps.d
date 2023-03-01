@@ -1,11 +1,11 @@
 stm32f4/ATGM336H/src/nmea_gps.o: \
- C:/Users/1/Documents/git/cansat-atlas-2021-2022/lib-tsniimash/stm32f4/ATGM336H/src/nmea_gps.c \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\atgm336h\nmea_gps.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\atgm336h\minmea/minmea.h \
- c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\atgm336h\minmea\minmea.h
+ X:/Cansat\ 2023/Neon\ Blade/Software/lib-tsniimash/stm32f4/ATGM336H/src/nmea_gps.c \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\atgm336h\nmea_gps.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\atgm336h\minmea/minmea.h \
+ x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\atgm336h\minmea\minmea.h
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\atgm336h\nmea_gps.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\atgm336h\nmea_gps.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\atgm336h\minmea/minmea.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\atgm336h\minmea/minmea.h:
 
-c:\users\1\documents\git\cansat-atlas-2021-2022\lib-tsniimash\stm32f4\atgm336h\minmea\minmea.h:
+x:\cansat\ 2023\neon\ blade\software\lib-tsniimash\stm32f4\atgm336h\minmea\minmea.h:
