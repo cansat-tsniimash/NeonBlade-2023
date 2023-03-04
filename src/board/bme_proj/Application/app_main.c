@@ -217,40 +217,25 @@ int app_main()
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 		HAL_Delay(100);
 		nrf24_irq_get(&nrf24_api_config, &IRQ_flags);
-		if((IRQ_flags & NRF24_IRQ_TX_DR) != 0)
+		if ((IRQ_flags & NRF24_IRQ_RX_DR) != 0)
 		{
+			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_RX_DR);
 			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 			HAL_Delay(100);
-			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_TX_DR);
-			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
-			nrf24_fifo_flush_tx(&nrf24_api_config);
 			nrf24_fifo_flush_rx(&nrf24_api_config);
-			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
+		}
+		if((IRQ_flags & NRF24_IRQ_TX_DR) != 0)
+		{
+			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_TX_DR);
+			nrf24_fifo_flush_tx(&nrf24_api_config);
 			nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
 		}
 		else if (IRQ_flags & NRF24_IRQ_MAX_RT)
 		{
 			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_MAX_RT);
-			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
 			nrf24_fifo_flush_tx(&nrf24_api_config);
-			nrf24_fifo_flush_rx(&nrf24_api_config);
-			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
 			nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
 		}
-		/*if(rx_status != NRF24_FIFO_EMPTY)
-		{
-			nrf24_fifo_read(&nrf24_api_config, rx_buffer, 32);
-			if (rx_status == NRF24_FIFO_FULL)
-			{
-				nrf24_fifo_flush_rx(&nrf24_api_config);
-			}
-
-			nrf24_fifo_flush_tx(&nrf24_api_config);
-			nrf24_pipe_set_tx_addr(&nrf24_api_config, 0xafafafaf01);
-			nrf24_mode_tx(&nrf24_api_config);
-			er_rf_wr = nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), false);
-			if (er_rf_wr <= 0) er_rf_wr = 0;
-		}*/
 
 
 /*
