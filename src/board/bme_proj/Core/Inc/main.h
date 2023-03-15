@@ -63,6 +63,8 @@ void Error_Handler(void);
 #define LIS_CS_GPIO_Port GPIOC
 #define LSM_CS_Pin GPIO_PIN_15
 #define LSM_CS_GPIO_Port GPIOC
+#define I2C1_SDA_Pin GPIO_PIN_7
+#define I2C1_SDA_GPIO_Port GPIOB
 #define CS_NRF_Pin GPIO_PIN_8
 #define CS_NRF_GPIO_Port GPIOB
 #define CE_NRF_Pin GPIO_PIN_9
