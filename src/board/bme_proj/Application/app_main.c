@@ -8,15 +8,20 @@
 #include "nRF24L01_PL/nrf24_lower_api_stm32.h"
 #include "nRF24L01_PL/nrf24_lower_api.h"
 #include "main.h"
+#include "../Drivers/ina219/inc/ina219.h"
+#include "../Drivers/ina219/inc/ina219_helper.h"
 
 
-
+extern I2C_HandleTypeDef hi2c1;
 extern SPI_HandleTypeDef hspi2;
 extern ADC_HandleTypeDef hadc1;
+extern UART_HandleTypeDef huart1;
 
 #define DA1_NRF_ADDR (0xcfcfcfcfcf)
 #define DA2_NRF_ADDR (DA1_NRF_ADDR + 1)
 #define DA3_NRF_ADDR (DA1_NRF_ADDR + 2)
+
+#define INA219_CURRENT_CAL	1.046
 
 typedef enum//ОПИСЫВАЕМ ОБЩЕНИЕ ПО РАДИО
 {
@@ -212,47 +217,56 @@ int app_main()
 	nrf24_fifo_status_t rx_status = 0;
     nrf24_fifo_status_t tx_status = 0;
 
+
+	ina219_t ina219_gen;
+	ina219_init(&ina219_gen, &hi2c1, INA219_I2CADDR_A1_GND_A0_GND, 5000);
+	ina219_cfg_t ina_config_gen;
+	ina_config_gen.bus_range = INA219_BUS_RANGE_16V;
+	ina_config_gen.bus_res = INA219_ADC_RES_12_BIT_OVS_128;
+	ina_config_gen.current_lsb = INA_CURRENT_LSB;
+	ina_config_gen.shunt_r = INA_SHUNT_RES;
+	ina_config_gen.shunt_range = INA219_SHUNT_RANGE_160MV;
+	ina_config_gen.shunt_res = INA219_ADC_RES_12_BIT_OVS_128;
+
+	ina219_secondary_data_t ina219_secondary_data_gen;
+	ina219_primary_data_t ina219_prim_data_gen;
+
+
+	ina219_set_cfg(&ina219_gen, &ina_config_gen);
+	ina219_set_mode(&ina219_gen, INA219_MODE_SHUNT_AND_BUS_CONT);
+
+
+
+	float pipipupuu;
+	float popa;
+	float sui;
 	while(1)
 	{
+/* это радио с приемом акка ДА
 		HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_SET);
 		HAL_Delay(100);
 		nrf24_irq_get(&nrf24_api_config, &IRQ_flags);
-		if((IRQ_flags & NRF24_IRQ_TX_DR) != 0)
+		if ((IRQ_flags & NRF24_IRQ_RX_DR) != 0)
 		{
+			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_RX_DR);
 			HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, GPIO_PIN_RESET);
 			HAL_Delay(100);
-			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_TX_DR);
-			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
-			nrf24_fifo_flush_tx(&nrf24_api_config);
 			nrf24_fifo_flush_rx(&nrf24_api_config);
-			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
+		}
+		if((IRQ_flags & NRF24_IRQ_TX_DR) != 0)
+		{
+			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_TX_DR);
+			nrf24_fifo_flush_tx(&nrf24_api_config);
 			nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
 		}
 		else if (IRQ_flags & NRF24_IRQ_MAX_RT)
 		{
 			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_MAX_RT);
-			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
 			nrf24_fifo_flush_tx(&nrf24_api_config);
-			nrf24_fifo_flush_rx(&nrf24_api_config);
-			nrf24_fifo_status(&nrf24_api_config, &rx_status, &tx_status);
 			nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), true);
 		}
-		/*if(rx_status != NRF24_FIFO_EMPTY)
-		{
-			nrf24_fifo_read(&nrf24_api_config, rx_buffer, 32);
-			if (rx_status == NRF24_FIFO_FULL)
-			{
-				nrf24_fifo_flush_rx(&nrf24_api_config);
-			}
 
-			nrf24_fifo_flush_tx(&nrf24_api_config);
-			nrf24_pipe_set_tx_addr(&nrf24_api_config, 0xafafafaf01);
-			nrf24_mode_tx(&nrf24_api_config);
-			er_rf_wr = nrf24_fifo_write(&nrf24_api_config, (uint8_t *)&packet_ma_type_1, sizeof(packet_ma_type_1), false);
-			if (er_rf_wr <= 0) er_rf_wr = 0;
-		}*/
-
-
+*/
 /*
 	lsmread(&ctx, &temperature_celsius_gyro, &acc_g, &gyro_dps);
 
@@ -286,46 +300,25 @@ int app_main()
 	packet_ma_type_2.phortsistor = photorezistor_get_lux(photoresistor);*/
 
 
-
-
-
-/*
-	ina219_t ina219_gen;
-	ina219_init(&ina219_gen, &hi2c1, INA219_I2CADDR_A1_GND_A0_GND, 5000);
-	ina219_cfg_t ina_config_gen;
-	ina_config_gen.bus_range = INA219_BUS_RANGE_16V;
-	ina_config_gen.bus_res = INA219_ADC_RES_12_BIT_OVS_128;
-	ina_config_gen.current_lsb = 1;
-	ina_config_gen.shunt_r = 0.01;
-	ina_config_gen.shunt_range = INA219_SHUNT_RANGE_160MV;
-	ina_config_gen.shunt_res = INA219_ADC_RES_12_BIT_OVS_128;
-
-	ina219_secondary_data_t ina219_secondary_data_gen;
-
-	ina219_set_cal(&ina219_gen, 1.0, 0.1);
-	ina219_set_cfg(&ina219_gen, &ina_config_gen);
-	ina219_set_mode(&ina219_gen, INA219_MODE_SHUNT_AND_BUS_CONT);
+/*	for (int i = 0; i < 16; i++) {
+		ina219_init(&ina219_gen, &hi2c1, INA219_I2CADDR_A1_GND_A0_GND + i, 5000);
+		ina219_read_primary(&ina219_gen, &ina219_prim_data_gen);
+		HAL_Delay(100);
+	}*/
 	ina219_read_secondary(&ina219_gen, &ina219_secondary_data_gen);
+	ina219_read_primary(&ina219_gen, &ina219_prim_data_gen);
+	pipipupuu = ina219_bus_voltage_convert(&ina219_gen, ina219_prim_data_gen.busv);
+	popa = ina219_current_convert(&ina219_gen, ina219_secondary_data_gen.current / INA219_CURRENT_CAL);
+	sui = ina219_shunt_voltage_convert(&ina219_gen, ina219_prim_data_gen.shuntv);
+	HAL_Delay(100);
 
 
 
-	ina219_t ina219_akb;
-	ina219_init(&ina219_akb, &hi2c1, INA219_I2CADDR_A1_GND_A0_VSP, 5000);
-	ina219_cfg_t ina_config_akb;
-	ina_config_akb.bus_range = INA219_BUS_RANGE_16V;
-	ina_config_akb.bus_res = INA219_ADC_RES_12_BIT_OVS_128;
-	ina_config_akb.current_lsb = 1;
-	ina_config_akb.shunt_r = 0.01;
-	ina_config_akb.shunt_range = INA219_SHUNT_RANGE_160MV;
-	ina_config_akb.shunt_res = INA219_ADC_RES_12_BIT_OVS_128;
 
-	ina219_secondary_data_t ina219_secondary_data_akb;
+	printf("Напряжение на шине: %f В\n", pipipupuu);
+	printf("Ток: %f A\n", popa);
+	printf("Напряжение на шунте: %f В\n", sui);
 
-	ina219_set_cal(&ina219_akb, 1.0, 0.1);
-	ina219_set_cfg(&ina219_akb, &ina_config_akb);
-	ina219_set_mode(&ina219_akb, INA219_MODE_SHUNT_AND_BUS_CONT);
-	ina219_read_secondary(&ina219_akb, &ina219_secondary_data_akb);
-*/
 	}
 	return 0;
 }

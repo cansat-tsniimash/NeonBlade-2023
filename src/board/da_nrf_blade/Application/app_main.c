@@ -216,6 +216,8 @@ int app_main()
 
 	while(1)
 	{
+	    nrf24_fifo_flush_tx(&nrf24_api_config);
+		nrf24_write_ack_payload(&nrf24_api_config, &packet_ma_type_1, sizeof(packet_ma_type_1), 0);
 		nrf24_irq_get(&nrf24_api_config, &IRQ_flags);
 		if((IRQ_flags & NRF24_IRQ_RX_DR) != 0)
 		{
@@ -227,7 +229,6 @@ int app_main()
 				nrf24_fifo_read(&nrf24_api_config, rx_buffer, 32);
 				nrf24_fifo_peek(&nrf24_api_config, &packet_size, &rx_pipe_no, &tx_full);
 			} while (packet_size);
-
 			nrf24_irq_clear(&nrf24_api_config, NRF24_IRQ_RX_DR);
 		    nrf24_fifo_flush_rx(&nrf24_api_config);
 		    nrf24_fifo_flush_tx(&nrf24_api_config);
