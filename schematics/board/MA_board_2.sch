@@ -559,6 +559,17 @@
 <text x="-3.5" y="0" size="0.8" layer="25" rot="R90" align="bottom-center">&gt;NAME</text>
 <text x="-1.5" y="0" size="0.8" layer="21" ratio="15" rot="R90" align="bottom-center">&gt;VALUE</text>
 </package>
+<package name="BA159">
+<pad name="P$1" x="-1.5" y="0" drill="1" shape="octagon" rot="R180"/>
+<pad name="P$2" x="1.5" y="0" drill="1" shape="octagon"/>
+<circle x="1.5" y="0" radius="1.5811375" width="0.127" layer="21"/>
+<wire x1="0.5" y1="1" x2="0.5" y2="-1" width="0.127" layer="21"/>
+<polygon width="0.127" layer="21">
+<vertex x="0.5" y="0"/>
+<vertex x="-0.5" y="1"/>
+<vertex x="-0.5" y="-1"/>
+</polygon>
+</package>
 </packages>
 <packages3d>
 <package3d name="1X08" urn="urn:adsk.eagle:package:22409/2" type="model">
@@ -685,6 +696,19 @@
 <text x="1.016" y="-4.191" size="1.778" layer="96">&gt;VALUE</text>
 <pin name="1" x="0" y="2.54" visible="off" length="short" direction="pas" swaplevel="1" rot="R270"/>
 <pin name="2" x="0" y="-5.08" visible="off" length="short" direction="pas" swaplevel="1" rot="R90"/>
+</symbol>
+<symbol name="DIODE">
+<wire x1="-1.27" y1="-1.905" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-1.27" y2="1.905" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="1.905" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="0" x2="-1.27" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="1.397" y1="1.905" x2="1.397" y2="-1.905" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="0" x2="-1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
+<text x="-2.3114" y="2.6416" size="1.778" layer="95">&gt;NAME</text>
+<text x="-2.5654" y="-4.4958" size="1.778" layer="96">&gt;VALUE</text>
+<pin name="A" x="-2.54" y="0" visible="off" length="point" direction="pas"/>
+<pin name="C" x="2.54" y="0" visible="off" length="point" direction="pas" rot="R180"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -944,6 +968,22 @@
 <connects>
 <connect gate="G$1" pin="1" pad="P$1"/>
 <connect gate="G$1" pin="2" pad="P$2"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BA159">
+<gates>
+<gate name="G$1" symbol="DIODE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="BA159">
+<connects>
+<connect gate="G$1" pin="A" pad="P$1"/>
+<connect gate="G$1" pin="C" pad="P$2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -11016,6 +11056,7 @@ Source: www.kingbright.com</description>
 <part name="C3" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF"/>
 <part name="C6" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0603" package3d_urn="urn:adsk.eagle:package:23616/2" value="100nF"/>
 <part name="C4" library="NEON-BLADE-2023" deviceset="ECAP" device="ECAP220" value="220uF"/>
+<part name="DIP-4A" library="NEON-BLADE-2023" deviceset="BA159" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -11121,6 +11162,10 @@ Source: www.kingbright.com</description>
 <instance part="C4" gate="G$1" x="182.88" y="76.2" smashed="yes">
 <attribute name="NAME" x="183.896" y="76.835" size="1.778" layer="95"/>
 <attribute name="VALUE" x="183.896" y="72.009" size="1.778" layer="96"/>
+</instance>
+<instance part="DIP-4A" gate="G$1" x="314.96" y="60.96" smashed="yes">
+<attribute name="NAME" x="312.6486" y="63.6016" size="1.778" layer="95"/>
+<attribute name="VALUE" x="312.3946" y="56.4642" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -11473,8 +11518,13 @@ Source: www.kingbright.com</description>
 <net name="N$6" class="0">
 <segment>
 <pinref part="BATTERY" gate="G$1" pin="1"/>
-<wire x1="335.28" y1="71.12" x2="322.58" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="335.28" y1="71.12" x2="325.12" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="C"/>
+<pinref part="DIP-4A" gate="G$1" pin="C"/>
+<wire x1="325.12" y1="71.12" x2="322.58" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="71.12" x2="325.12" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="325.12" y1="60.96" x2="317.5" y2="60.96" width="0.1524" layer="91"/>
+<junction x="325.12" y="71.12"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -11551,6 +11601,9 @@ Source: www.kingbright.com</description>
 <pinref part="D1" gate="G$1" pin="A"/>
 <pinref part="R3" gate="G$1" pin="2"/>
 <junction x="302.26" y="71.12"/>
+<pinref part="DIP-4A" gate="G$1" pin="A"/>
+<wire x1="302.26" y1="71.12" x2="302.26" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="302.26" y1="60.96" x2="312.42" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="FEEDBACK_SKIRT" class="0">
