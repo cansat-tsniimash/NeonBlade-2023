@@ -4,6 +4,8 @@
  *  Created on: 18 марта 2017 г.
  *      Author: developer
  */
+#include "../inc/ina219.h"
+
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -11,7 +13,6 @@
 
 #include <main.h>
 
-#include "../inc/ina219.h"
 
 
 #ifdef INA219_FLT_DOUBLE

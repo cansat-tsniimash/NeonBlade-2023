@@ -8,9 +8,9 @@
 #ifndef INA219_HELPER_H_
 #define INA219_HELPER_H_
 
-#include "ina219.h"
 #include <stdio.h>
 #include "main.h"
+#include "../inc/ina219.h"
 
 #define INA_CURRENT_LSB         ((ina219_float_t)(3.f/0x8000))
 #define INA_POWER_LSB           ((ina219_float_t)(20*INA_CURRENT_LSB))
